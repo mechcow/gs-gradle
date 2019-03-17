@@ -4,7 +4,7 @@ node {
   myGradleContainer.pull()
   stage('prep') {
     checkout scm
-    myGradleContainer.withRun('-u root') {
+    myGradleContainer.withRun("-u root -v ${env.HOME}/.gradle:/home/gradle/.gradle") {
       sh 'apk add --no-cache bash'
     }
   }
